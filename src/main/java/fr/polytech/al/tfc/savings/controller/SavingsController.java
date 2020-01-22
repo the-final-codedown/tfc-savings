@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URISyntaxException;
+
 @RestController
 @RequestMapping("/savings")
 public class SavingsController {
@@ -19,7 +21,7 @@ public class SavingsController {
     }
 
     @PostMapping
-    public ResponseEntity<String> startComputingSavings() {
+    public ResponseEntity<String> startComputingSavings() throws URISyntaxException {
         savingsObserver.computeSavings();
         return new ResponseEntity<>(HttpStatus.OK);
     }

@@ -2,7 +2,7 @@ package fr.polytech.al.tfc.savings.producer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.polytech.al.tfc.rollinghistory.model.Cap;
+import fr.polytech.al.tfc.savings.model.TransactionDTO;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.stereotype.Component;
@@ -20,11 +20,11 @@ public class SavingsProducer {
         this.producer = producer;
     }
 
-    public void sendTransaction() throws JsonProcessingException {
+    public void sendTransaction(TransactionDTO transaction) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            producer.send(new ProducerRecord<>(topic, accountId, objectMapper.writeValueAsString(updatedCap))).get();
-            System.out.println("Sent " + accountId + " " + updatedCap.toString());
+            producer.send(new ProducerRecord<>(topic,  objectMapper.writeValueAsString(transaction))).get();
+            System.out.println("Sent " + transaction.toString());
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }

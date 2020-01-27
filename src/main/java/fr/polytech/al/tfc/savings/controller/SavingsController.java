@@ -1,5 +1,6 @@
 package fr.polytech.al.tfc.savings.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class SavingsController {
     }
 
     @PostMapping
-    public ResponseEntity<String> startComputingSavings() throws URISyntaxException {
+    public ResponseEntity<String> startComputingSavings() throws URISyntaxException, JsonProcessingException {
         savingsObserver.computeSavings();
         return new ResponseEntity<>(HttpStatus.OK);
     }

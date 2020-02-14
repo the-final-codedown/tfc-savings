@@ -2,4 +2,9 @@
 
 mvn clean package
 
-docker build -t tfc/savings .
+IMAGE=tfc/savings
+VERSION=
+
+docker build -t ${IMAGE} .
+docker tag ${IMAGE} localhost:5000/${IMAGE}${VERSION}
+docker push localhost:5000/${IMAGE}${VERSION}

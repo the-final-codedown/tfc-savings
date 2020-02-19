@@ -24,8 +24,8 @@ public class SavingsController {
     }
 
     //604800s => 7 jours
+    //@Scheduled(fixedDelay = 604800)
     @PostMapping
-    @Scheduled(fixedDelay = 604800)
     public ResponseEntity<String> startComputingSavings() throws URISyntaxException, JsonProcessingException {
         savingsObserver.computeSavings();
         return new ResponseEntity<>(HttpStatus.OK);

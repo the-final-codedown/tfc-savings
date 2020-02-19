@@ -16,7 +16,7 @@ public class TransactionDTO {
     @NonNull
     private int amount;
     @NonNull
-    private LocalDateTime date;
+    private String date;
 }
 
 /*

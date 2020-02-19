@@ -5,11 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TfcAccountApplication implements CommandLineRunner {
+public class TfcSavingsApplication implements CommandLineRunner {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(TfcAccountApplication.class, args);
+        SpringApplication.run(TfcSavingsApplication.class, args);
     }
 
     @Override

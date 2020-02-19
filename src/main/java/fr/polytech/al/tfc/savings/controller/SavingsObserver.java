@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Component
 public class SavingsObserver {
 
-    @Value("${AccountHost}")
+    @Value("${account.host}")
     private String accountHost;
 
     private SavingsProducer savingsProducer;

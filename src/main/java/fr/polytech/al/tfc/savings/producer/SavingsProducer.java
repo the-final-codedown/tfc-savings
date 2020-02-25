@@ -23,7 +23,7 @@ public class SavingsProducer {
     public void sendTransaction(TransactionDTO transaction) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            producer.send(new ProducerRecord<>(topic,  objectMapper.writeValueAsString(transaction))).get();
+            producer.send(new ProducerRecord<>(String.format("%s", topic),  objectMapper.writeValueAsString(transaction))).get();
             System.out.println("Sent " + transaction.toString());
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
